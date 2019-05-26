@@ -1,0 +1,49 @@
+    it('should wait for "Logging in..." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Logging in...');
+    });
+
+    it('should wait for "Logged in." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Logged in.');
+    });
+
+    it('should wait for "Loading..." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Loading...');
+    });
+
+    it('should wait for "Loaded." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Loaded.');
+    });
+
+    it('should wait for "Signing up..." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Signing up...');
+    });
+
+    it('should wait for "Signed in." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Signed in.');
+    });
+
+     it('should wait for "Logging out..." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Logging out...');
+    });
+
+    it('should wait for "Logged out." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Logged out.');
+    });
+
+    it('should wait for "Saving..." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Saving...');
+    });
+
+    it('should wait for "Saved." toast', async () => {
+        const driver = getDriver();
+        await waitForToast(driver, 'Saved.');
+    });

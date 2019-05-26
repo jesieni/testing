@@ -1,0 +1,47 @@
+version: '3.3'
+
+services:
+  docteer:
+    image: registry.docteer.com/docteer:2c922e9-test
+    networks:
+      - mongo-net
+    ports:
+      - target: 3000
+        published: 3000
+        mode: host
+    environment:
+      - MONGO_CLIENT_URL=mongodb://mongo:27017/docteer
+  mongo:
+    image: mongo:4.0
+    networks:
+      - mongo-net
+    command:
+      --bind_ip_all
+      --replSet rs0
+    ports:
+      - target: 27017
+        published: 27017
+        mode: host
+    volumes:
+      - mongo-data:/data/configdb
+      - mongo-data:/data/db
+
+networks:
+  mongo-net:
+    external: true
+
+volumes:
+  mongo-data:
+    external: true
+
+# After deploy:
+# docker exec -it mongo
+# rs.initiate()
+# rs.reconfig({
+#   _id: 'rs0',
+#   version: 1,
+#   protocolVersion: 1,
+#   members: [{_id: 0, host: 'mongo:27017'}]
+# })
+# docker volume create mongo-data
+# docker network create --driver overlay mongo-net

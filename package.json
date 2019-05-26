@@ -1,0 +1,27 @@
+{
+  "name": "tests-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chromedriver": "^74.0.0",
+    "faker": "^4.1.0",
+    "mocha": "^6.1.4",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "scripts": {
+    "docteer-start": "docker-compose up -d",
+    "docteer-stop": "docker-compose down",
+    "test": "mocha"
+  },
+  "mocha": {
+    "bail": true,
+    "logVerbose": true,
+    "reporter": "list",
+    "timeout": 30000
+  }
+}

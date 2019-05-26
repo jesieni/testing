@@ -1,0 +1,5 @@
+created and removed - gray;
+created - green;
+removed - red;
+edited - blue;
+none - dark-gray;
