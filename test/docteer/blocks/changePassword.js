@@ -1,16 +1,15 @@
 const goToSettings = require('./goToSettings');
-const openForm = require('./openForm');
 const typeChangePassword = require('./typeChangePassword');
 const saveChangePassword = require('./saveChangePassword');
-const closeForm = require('./closeForm');
+const toggleForm = require('./toggleForm');
 const waitForToast = require('./waitForToast');
 
 module.exports = function changePassword(password, newpassword) {
     goToSettings();
-    openForm();
+    toggleForm();
     typeChangePassword(password, newpassword, newpassword);
     saveChangePassword();
-    closeForm();
+    toggleForm();
     waitForToast('Changing password...');
     waitForToast('Changed password.');
 };
