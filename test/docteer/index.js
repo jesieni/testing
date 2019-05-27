@@ -17,7 +17,7 @@ const {Key} = require('selenium-webdriver');
 describe('docteer.com', () => {
     const email = faker.internet.email();
     const password = faker.internet.password();
-    const wrongPassword = faker.internet.password();
+    const wrongPassword = 'x' + password;
     const temporaryPassword = faker.internet.password();
 
     describe('signUp', () => {
@@ -30,7 +30,7 @@ describe('docteer.com', () => {
     });
 
     describe('invalidLogIn', () => {
-        const wrongEmail = faker.internet.email();
+        const wrongEmail = 'x' + email;
         invalidLogIn(email, wrongPassword);
         invalidLogIn(wrongEmail, password);
         invalidLogIn(wrongEmail, wrongPassword);
@@ -88,5 +88,6 @@ describe('docteer.com', () => {
     describe('logIn and invalidChangePassword', () => {
         logIn(email, password);
         invalidChangePassword(password, temporaryPassword, wrongPassword);
-    })
+        logOut();
+    });
 });
