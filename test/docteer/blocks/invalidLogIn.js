@@ -10,5 +10,5 @@ module.exports = function logIn(email, password) {
     typeUserInfo(email, password);
     submitUserInfo('login');
     waitForToast('Logging in...');
-    waitForToast("Sounds good, doesn't work.");
+    waitForToast('Sounds good, doesn\'t work.');
 };
