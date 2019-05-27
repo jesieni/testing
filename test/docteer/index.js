@@ -1,7 +1,9 @@
 const faker = require('faker');
 const signUp = require('./blocks/signUp');
+const signUpExistingUser = require('./blocks/signUpExistingUser');
 const logOut = require('./blocks/logOut');
 const logIn = require('./blocks/logIn');
+const invalidLogIn = require('./blocks/invalidLogIn');
 const createNote = require('./blocks/createNote');
 const editNote = require('./blocks/editNote');
 const cloneNote = require('./blocks/cloneNote');
@@ -9,15 +11,29 @@ const deleteNote = require('./blocks/removeNote');
 const refreshPage = require('./blocks/refreshPage');
 const createAndRemoveNote = require('./blocks/createAndRemoveNote');
 const changePassword = require('./blocks/changePassword');
+const invalidChangePassword = require('./blocks/invalidChangePassword');
 const {Key} = require('selenium-webdriver');
 
 describe('docteer.com', () => {
     const email = faker.internet.email();
     const password = faker.internet.password();
+    const wrongPassword = faker.internet.password();
+    const temporaryPassword = faker.internet.password();
 
     describe('signUp', () => {
         signUp(email, password);
         logOut();
+    });
+
+    describe('signUpExistingUser', () => {
+        signUpExistingUser(email, password);
+    });
+
+    describe('invalidLogIn', () => {
+        const wrongEmail = faker.internet.email();
+        invalidLogIn(email, wrongPassword);
+        invalidLogIn(wrongEmail, password);
+        invalidLogIn(wrongEmail, wrongPassword);
     });
 
     describe('logIn and createNote', () => {
@@ -63,10 +79,14 @@ describe('docteer.com', () => {
     });
 
     describe('logIn and changePassword', () => {
-        const temporaryPassword = faker.internet.password();
         logIn(email, password);
         changePassword(password, temporaryPassword);
         changePassword(temporaryPassword, password);
         logOut();
     });
+
+    describe('logIn and invalidChangePassword', () => {
+        logIn(email, password);
+        invalidChangePassword(password, temporaryPassword, wrongPassword);
+    })
 });
