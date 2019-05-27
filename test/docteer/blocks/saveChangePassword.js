@@ -5,5 +5,6 @@ module.exports = function saveChangePassword() {
     it('should save changed password', async () => {
         const driver = getDriver();
         await click(driver, '[title="Change password"]');
+        await driver.sleep(250);
     });
 };
