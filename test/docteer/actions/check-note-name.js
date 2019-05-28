@@ -1,9 +1,10 @@
-const getDriver = require('../../../utils/getDriver');
-const {By} = require('selenium-webdriver');
 const {expect} = require('chai');
 
-module.exports = async function checkNoteTitle(selector, title) {
-    const driver = getDriver();
-    const value = await driver.findElement(By.css(selector)).getAttribute('data-test-note');
-    expect(value).to.equal(title);
+module.exports = async function checkNoteTitle(driver, noteList, title) {
+    for (const note of noteList) {
+        const noteTitle = await note.getAttribute('data-test-note');
+        if (noteTitle === title)
+            return;
+    }
+    expect.fail();
 };

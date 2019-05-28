@@ -86,7 +86,12 @@ describe('docteer.com', () => {
             Labels: ['masło', Key.RETURN, 'krowa'],
             Text: 'Kanapka z masłem.'
         });
-        checkIfNameMatches('[data-test-note="Masło."]', 'Masło.');
+        createNote({
+            Name: 'Masłem.',
+            Labels: ['masło', Key.RETURN, 'krowa'],
+            Text: 'Kanapka z masłem.'
+        });
+        checkIfNameMatches('Masło.');
         logOut();
     });
 
