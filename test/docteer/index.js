@@ -10,6 +10,7 @@ const cloneNote = require('./blocks/cloneNote');
 const deleteNote = require('./blocks/removeNote');
 const refreshPage = require('./blocks/refreshPage');
 const createAndRemoveNote = require('./blocks/createAndRemoveNote');
+const checkIfNameMatches = require('./blocks/checkIfNameMatches');
 const changePassword = require('./blocks/changePassword');
 const invalidChangePassword = require('./blocks/invalidChangePassword');
 const {Key} = require('selenium-webdriver');
@@ -75,6 +76,17 @@ describe('docteer.com', () => {
             Labels: ['kot', Key.RETURN, 'cicik'],
             Text: 'Kotek zjadł i poszedł spać. Dzielny kotek. Dużo zjadł.'
         });
+        logOut();
+    });
+
+    describe('logIn, createNote and checkIfNameMatches', () => {
+        logIn(email, password);
+        createNote({
+            Name: 'Masło.',
+            Labels: ['masło', Key.RETURN, 'krowa'],
+            Text: 'Kanapka z masłem.'
+        });
+        checkIfNameMatches('[data-test-note="Masło."]', 'Masło.');
         logOut();
     });
 
