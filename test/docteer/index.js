@@ -13,6 +13,7 @@ const createAndRemoveNote = require('./blocks/createAndRemoveNote');
 const checkIfNameMatches = require('./blocks/checkIfNameMatches');
 const changePassword = require('./blocks/changePassword');
 const invalidChangePassword = require('./blocks/invalidChangePassword');
+const addNewSchema = require('./blocks/addNewSchema');
 const {Key} = require('selenium-webdriver');
 
 describe('docteer.com', () => {
@@ -107,4 +108,10 @@ describe('docteer.com', () => {
         invalidChangePassword(password, temporaryPassword, wrongPassword);
         logOut();
     });
+
+    describe('logIn and addNewSchema', () => {
+        logIn(email, password);
+        addNewSchema(2, 'New', 'ToDo');
+        logOut();
+    })
 });
