@@ -13,5 +13,4 @@ module.exports = function addNewSchema(index, schemaName, fieldName){
     addNewField(schemaName);
     changeFieldName(schemaName, 2, fieldName);
     changeFieldType(schemaName, fieldName, 'ol');
-
 }
