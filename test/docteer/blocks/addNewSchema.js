@@ -5,12 +5,12 @@ const changeFieldType = require('./changeFieldType');
 const addNewField = require('./addNewField');
 const changeFieldName = require('./changeFieldName');
 
-module.exports = function addNewSchema(index, schemaName, fieldName){
+module.exports = function addNewSchema(index, schemaName, fieldIndex, fieldName){
     goToSettings();
     clickAddSchemaButton();
     changeSchemaName(index, schemaName);
     changeFieldType(schemaName, 'name', 'textarea');
     addNewField(schemaName);
-    changeFieldName(schemaName, 2, fieldName);
+    changeFieldName(schemaName, fieldIndex, fieldName);
     changeFieldType(schemaName, fieldName, 'ol');
 }

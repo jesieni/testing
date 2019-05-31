@@ -111,7 +111,7 @@ describe('docteer.com', () => {
 
     describe('logIn and addNewSchema', () => {
         logIn(email, password);
-        addNewSchema(2, 'New', 'ToDo');
+        addNewSchema(2, 'New', 2, 'ToDo');
         logOut();
     })
 });
