@@ -7,6 +7,6 @@ module.exports = function changeFieldType(schemaName, fieldIndex, fieldName) {
     it('should change field name to ' + fieldName, async () => {
         const driver = getDriver();
         await click(driver, '[data-index="' + fieldIndex + '"][data-name="' + schemaName + '"] [data-test-schema-field-name]');
-        await fill(driver, '[data-index="' + fieldIndex + '"][data-name="' + schemaName + '"] [data-test-schema-field-name]', Key.chord(Key.CONTROL, 'a') + fieldName + Key.RETURN);
+        await fill(driver, '[data-index="' + fieldIndex + '"][data-name="' + schemaName + '"] [data-test-schema-field-name]', Key.chord(Key.CONTROL, 'a'), fieldName, Key.RETURN);
     });
 }

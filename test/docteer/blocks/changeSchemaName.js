@@ -10,6 +10,6 @@ module.exports = function changeSchemaName(index, schemaName) {
         await click(driver, '[data-test-schema="Schema ' + index + '"]');
         await waitUntilVisible(driver, index);
         await click(driver, '[data-test-schema="Schema ' + index + '"] [type="Schema name"]');
-        await fill(driver, '[data-test-schema="Schema ' + index + '"] [type="Schema name"]', Key.chord(Key.CONTROL, 'a') + schemaName + Key.RETURN);
+        await fill(driver, '[data-test-schema="Schema ' + index + '"] [type="Schema name"]', Key.chord(Key.CONTROL, 'a'), schemaName, Key.RETURN);
     });
 }
