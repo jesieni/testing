@@ -14,6 +14,7 @@ const checkIfNameMatches = require('./blocks/checkIfNameMatches');
 const changePassword = require('./blocks/changePassword');
 const invalidChangePassword = require('./blocks/invalidChangePassword');
 const addNewSchema = require('./blocks/addNewSchema');
+const selectByField = require('./blocks/selectByField');
 const {Key} = require('selenium-webdriver');
 
 describe('docteer.com', () => {
@@ -96,6 +97,12 @@ describe('docteer.com', () => {
         logOut();
     });
 
+    describe('logIn and selectByField', () => {
+        logIn(email, password);
+        selectByField('Text', 'Kotek zjadł i poszedł spać. Dzielny kotek. Dużo zjadł.');
+        logOut();
+    });
+
     describe('logIn and changePassword', () => {
         logIn(email, password);
         changePassword(password, temporaryPassword);
@@ -113,5 +120,5 @@ describe('docteer.com', () => {
         logIn(email, password);
         addNewSchema(2, 'New', 2, 'ToDo');
         logOut();
-    })
+    });
 });
