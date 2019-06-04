@@ -15,6 +15,7 @@ const changePassword = require('./blocks/changePassword');
 const invalidChangePassword = require('./blocks/invalidChangePassword');
 const addNewSchema = require('./blocks/addNewSchema');
 const selectByField = require('./blocks/selectByField');
+const createNoteWithNewSchema = require('./blocks/createNoteWithNewSchema');
 const {Key} = require('selenium-webdriver');
 
 describe('docteer.com', () => {
@@ -119,6 +120,16 @@ describe('docteer.com', () => {
     describe('logIn and addNewSchema', () => {
         logIn(email, password);
         addNewSchema(2, 'New', 2, 'ToDo');
+        logOut();
+    });
+
+    describe('logIn and createNoteWithNewSchema', () => {
+        logIn(email, password);
+        createNoteWithNewSchema('New', {
+            Name: 'How to',
+            Labels: ['jak', Key.RETURN, 'życie'],
+            'To Do': ['Do this', Key.RETURN, 'Do that', Key.RETURN, 'Profit!']
+        });
         logOut();
     });
 });
