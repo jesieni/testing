@@ -6,6 +6,7 @@ const addNewField = require('./addNewField');
 const changeFieldName = require('./changeFieldName');
 const saveNewSchema = require('./saveNewSchema');
 const waitForToast = require('./waitForToast');
+const waitForNoToasts = require('./waitForNoToasts');
 
 module.exports = function addNewSchema(index, schemaName, fieldIndex, fieldName){
     goToSettings();
@@ -18,4 +19,5 @@ module.exports = function addNewSchema(index, schemaName, fieldIndex, fieldName)
     saveNewSchema();
     waitForToast('Saving...');
     waitForToast('Saved.')
+    waitForNoToasts();
 };

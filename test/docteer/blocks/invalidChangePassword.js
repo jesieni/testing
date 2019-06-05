@@ -3,6 +3,7 @@ const typeChangePassword = require('./typeChangePassword');
 const saveChangePassword = require('./saveChangePassword');
 const toggleForm = require('./toggleForm');
 const waitForToast = require('./waitForToast');
+const waitForNoToasts = require('./waitForNoToasts');
 
 module.exports = function invalidChangePassword(password, newpassword, wrongPassword) {
     goToSettings();
@@ -11,4 +12,5 @@ module.exports = function invalidChangePassword(password, newpassword, wrongPass
     saveChangePassword();
     waitForToast('Changing password...');
     waitForToast('Passwords mismatch.');
+    waitForNoToasts();
 };

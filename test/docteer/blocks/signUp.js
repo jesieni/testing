@@ -4,6 +4,7 @@ const switchToSignUp = require('./switchToSignUp');
 const typeUserInfo = require('./typeUserInfo');
 const waitForToast = require('./waitForToast');
 const submitUserInfo = require('./submitUserInfo');
+const waitForNoToasts = require('./waitForNoToasts');
 
 module.exports = function signUp(email, password) {
     openPage();
@@ -15,4 +16,5 @@ module.exports = function signUp(email, password) {
     waitForToast('Signed in.');
     waitForToast('Loading...');
     waitForToast('Loaded.');
+    waitForNoToasts();
 };

@@ -2,6 +2,7 @@ const navigateNotes = require('./navigateNotes');
 const pickNote = require('./pickNote');
 const waitForToast = require('./waitForToast');
 const checkColor = require('./checkColor');
+const waitForNoToasts = require('./waitForNoToasts');
 
 module.exports = function cloneNote(index) {
     pickNote(index);
@@ -12,4 +13,5 @@ module.exports = function cloneNote(index) {
     checkColor('dark-gray');
     waitForToast('Saving...');
     waitForToast('Saved.');
+    waitForNoToasts();
 };

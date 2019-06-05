@@ -3,6 +3,7 @@ const typeNote = require('./typeNote');
 const waitForToast = require('./waitForToast');
 const checkColor = require('./checkColor');
 const chooseSchema = require('./chooseSchema');
+const waitForNoToasts = require('./waitForNoToasts');
 
 module.exports = function createNoteWithNewSchema(schemaName, note) {
     navigateNotes('create');
@@ -13,4 +14,5 @@ module.exports = function createNoteWithNewSchema(schemaName, note) {
     checkColor('dark-gray');
     waitForToast('Saving...');
     waitForToast('Saved.');
+    waitForNoToasts();
 };
