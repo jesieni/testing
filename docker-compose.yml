@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   docteer:
-    image: registry.docteer.com/docteer:2c922e9-test
+    image: registry.docteer.com/docteer:latest
     networks:
       - mongo-net
     ports:
